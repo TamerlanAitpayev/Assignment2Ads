@@ -4,7 +4,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	for i := 0; i < n; i++ {
 		fast = fast.Next
 	}
-	for fast.Next != nil {
+	for fast.Next != nil {     
 		fast = fast.Next
 		slow = slow.Next
 	}
