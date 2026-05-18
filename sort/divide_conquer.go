@@ -1,30 +1,15 @@
 package main
 
-import (
-	"fmt"
-	"strings"
-)
-
 func divideAndConquerTrace(numbers []int) {
-	fmt.Println("B2. Divide and Conquer")
-	minValue, maxValue, comparisons := findMinMax(numbers, 0)
-
-	fmt.Println("Min:", minValue)
-	fmt.Println("Max:", maxValue)
-	fmt.Println("Range:", maxValue-minValue)
-	fmt.Println("D&C comparisons:", comparisons)
-	fmt.Println("Naive comparisons:", 2*(len(numbers)-1))
-	fmt.Println("D&C is better because it compares smaller parts first.")
+	_, _, _ = findMinMax(numbers, 0)
 }
 
 func findMinMax(arr []int, depth int) (int, int, int) {
 	if len(arr) == 1 {
-		fmt.Println(strings.Repeat("  ", depth), "base:", arr)
 		return arr[0], arr[0], 0
 	}
 
 	if len(arr) == 2 {
-		fmt.Println(strings.Repeat("  ", depth), "base:", arr)
 		if arr[0] < arr[1] {
 			return arr[0], arr[1], 1
 		}
@@ -46,7 +31,5 @@ func findMinMax(arr []int, depth int) (int, int, int) {
 	}
 
 	total := leftCount + rightCount + 2
-
-	fmt.Println(strings.Repeat("  ", depth), "combine:", arr, "min =", minValue, "max =", maxValue)
 	return minValue, maxValue, total
 }

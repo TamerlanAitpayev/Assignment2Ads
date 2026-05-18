@@ -1,28 +1,5 @@
 package main
 
-import "fmt"
-
-func main() {
-	arr := []int{17, 3, 24, 5, 10, 1, 31}
-	target := 10
-
-	fmt.Println("Dataset:", arr)
-	fmt.Println("T1:", target)
-	fmt.Println()
-
-	bubbleSortTrace(arr)
-	fmt.Println()
-	quickSortTrace(arr)
-	fmt.Println()
-	mergeSortTrace(arr)
-	fmt.Println()
-	hashingTrace(arr)
-	fmt.Println()
-	divideAndConquerTrace(arr)
-	fmt.Println()
-	linearSearchTrace(arr, target)
-}
-
 func bubbleSort(arr []int) []int {
 	result := make([]int, len(arr))
 	copy(result, arr)
@@ -44,30 +21,15 @@ func bubbleSort(arr []int) []int {
 	return result
 }
 
-func bubbleSortTrace(numbers []int) {
-	arr := make([]int, len(numbers))
-	copy(arr, numbers)
 
-	fmt.Println("A1. Bubble Sort")
-	fmt.Println("Start:", arr)
+func main() {
+	arr := []int{17, 3, 24, 5, 10, 1, 31}
+	target := 10
 
-	for pass := 1; pass < len(arr); pass++ {
-		swapped := false
-
-		for j := 0; j < len(arr)-pass; j++ {
-			if arr[j] > arr[j+1] {
-				arr[j], arr[j+1] = arr[j+1], arr[j]
-				swapped = true
-			}
-		}
-
-		fmt.Println("Pass", pass, ":", arr)
-
-		if !swapped {
-			fmt.Println("Early Exit: array is already sorted after pass", pass)
-			break
-		}
-	}
-
-	fmt.Println("Result:", arr)
+	bubbleSortTrace(arr)
+	quickSortTrace(arr)
+	mergeSortTrace(arr)
+	hashingTrace(arr)
+	divideAndConquerTrace(arr)
+	linearSearchTrace(arr, target)
 }
